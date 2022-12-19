@@ -11,9 +11,17 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`
-    // `gatsby-source-filesystem`
+    `gatsby-plugin-sharp`,
+    // `gatsby-source-filesystem`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
   ],
+  pathPrefix: "/smartmove",
 }
 
 export default config
