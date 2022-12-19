@@ -21,7 +21,6 @@ const config: GatsbyConfig = {
       },
     },
   ],
-  pathPrefix: "/smartmove",
 }
 
 export default config
