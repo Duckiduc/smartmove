@@ -12,7 +12,7 @@ const config: GatsbyConfig = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    // `gatsby-source-filesystem`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
