@@ -3,97 +3,7 @@ import type { HeadFC, PageProps } from "gatsby"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { NavBar } from "../components/NavBar"
-
-const moveAround = {
-  position: "relative",
-  display: "flex",
-  height: "40vh",
-}
-
-const background = {
-  position: "absolute",
-  width: "100%",
-  height: "40vh",
-  objectFit: "cover",
-  zIndex: -1,
-  top: 0,
-  left: 0,
-}
-
-const backgroundDescriptor = {
-  backgroundColor: "#071D3B",
-  maxWidth: "33%",
-  color: "#FFF",
-  fontFamily: "Arial, Helvetica, sans-serif",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: "3rem",
-}
-
-const conceptsTitle = {
-  fontFamily: "Arial, Helvetica, sans-serif",
-  marginTop: "2rem",
-}
-
-const description = {
-  padding: "2rem 10rem",
-  fontFamily: "Arial, Helvetica, sans-serif",
-  lineHeight: "1.5rem",
-}
-
-const calculatorButton = {
-  textDecoration: "none",
-  color: "#096BDB",
-  backgroundColor: "#FFF",
-  padding: ".8rem",
-  display: "inline-block",
-  borderRadius: "5px",
-}
-
-const conceptSection = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  paddingTop: "2rem",
-}
-
-const conceptArrow = {
-  width: "50px",
-}
-
-const concepts = {
-  display: "flex",
-}
-
-const concept = {
-  padding: "2rem",
-  paddingTop: "0",
-  fontFamily: "Arial, Helvetica, sans-serif",
-  maxWidth: "34%",
-  lineHeight: "1.5rem",
-}
-
-const conceptTitle = {
-  textAlign: "center",
-}
-
-const owningSection = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  backgroundColor: "#FF0A2B",
-  padding: "2rem",
-  fontFamily: "Arial, Helvetica, sans-serif",
-  color: "#FFF",
-}
-
-const owningDescription = {
-  maxWidth: "80%",
-  textAlign: "center",
-  fontSize: "1.3rem",
-  lineHeight: "2rem",
-}
+import * as styles from "./index.module.scss"
 
 const texts = [
   {
@@ -126,41 +36,41 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <main>
       <NavBar />
-      <section style={moveAround}>
-        <StaticImage src="../images/city.png" alt="" style={background} />
-        <div style={backgroundDescriptor}>
+      <section className={styles.moveAroundSection}>
+        <StaticImage src="../images/city.png" alt="" className={styles.moveAroundSection__background} />
+        <div className={styles.moveAroundSection__descriptor}>
           <div>
             <h1>{texts[0].title}</h1>
             <p>{texts[0].description}</p>
-            <Link to="/calculator" style={calculatorButton}>
+            <Link to="/calculator" className={styles.calculatorButton}>
               ACCESS THE CALCULATOR
             </Link>
           </div>
         </div>
       </section>
-      <section style={conceptSection}>
-        <StaticImage src="../images/arrow-down.png" alt="" style={conceptArrow}/>
-        <h1 style={conceptsTitle}>THE CONCEPT</h1>
-        <div style={concepts}>
-          <div style={concept}>
-            <h2 style={conceptTitle}>{texts[1].title}</h2>
+      <section className={styles.conceptsSection}>
+        <StaticImage src="../images/arrow-down.png" alt="" className={styles.conceptsSection__arrow}/>
+        <h1 className={styles.conceptsSection__title}>THE CONCEPT</h1>
+        <div className={styles.conceptsSection__concepts}>
+          <div className={styles.concept}>
+            <h2 className={styles.concept__title}>{texts[1].title}</h2>
             <p>{texts[1].description}</p>
           </div>
-          <div style={concept}>
-            <h2 style={conceptTitle}>{texts[2].title}</h2>
+          <div className={styles.concept}>
+            <h2 className={styles.concept__title}>{texts[2].title}</h2>
             <p>{texts[2].description}</p>
           </div>
-          <div style={concept}>
-            <h2 style={conceptTitle}>{texts[3].title}</h2>
+          <div className={styles.concept}>
+            <h2 className={styles.concept__title}>{texts[3].title}</h2>
             <p>{texts[3].description}</p>
           </div>
         </div>
       </section>
-      <section style={owningSection}>
+      <section className={styles.owningSection}>
         <h1>{texts[4].title}</h1>
-        <p style={owningDescription}>{texts[4].description}</p>
+        <p className={styles.owningSection__description}>{texts[4].description}</p>
       </section>
-      <section style={description}>
+      <section className={styles.descriptionSection}>
         <p>{texts[5].description}</p>
       </section>
       <footer>
